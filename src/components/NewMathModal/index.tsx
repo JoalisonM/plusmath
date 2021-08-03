@@ -1,9 +1,10 @@
 import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 import { useMaths } from '../../hooks/useMaths';
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 import { Form, Button } from './style';
-
 interface NewMathModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
@@ -18,16 +19,29 @@ const NewMathModal = ({ isOpen, onRequestClose }: NewMathModalProps) => {
   async function handleCreateNewMath(event: FormEvent) {
     event.preventDefault();
 
-    await createMath({
-      title,
-      description,
-    });
+    if (title && description) {
+      await createMath({
+        title,
+        description,
+      });
 
-    setTitle('');
-    setDescription('');
+      setTitle('');
+      setDescription('');
 
-    onRequestClose();
+      notify();
+      onRequestClose();
+    }
   }
+
+  const notify = () => toast.dark('🦄 Novo conteúdo adicionado', {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 4000,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    draggablePercent: 60,
+    role: "alert",
+  });
 
   return (
     <Modal

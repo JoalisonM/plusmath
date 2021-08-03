@@ -26,17 +26,19 @@ createServer({
   },
 
   routes() {
-    this.namespace = 'api'
+    this.namespace = "api";
 
-    this.get('/maths', (schema, request) => {
-      return schema.all('math')
-    })
+    this.get("/maths", (schema, request) => {
+      return schema.all("math")
+    });
 
-    this.post('/maths', (schema, request) => {
+    this.post("/maths", (schema, request) => {
       let data = JSON.parse(request.requestBody);
 
-      return schema.create('math',data);
-    })
+      return schema.create("math", data);
+    });
+
+    this.del("/maths/:id");
   }
 })
 

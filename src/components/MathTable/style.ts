@@ -30,5 +30,9 @@ export const Container = styled.div`
             background: #fff;
             color: var(--text-body);
         }
+
+        .button-delete:hover {
+          cursor: pointer;
+        }
     }
 `;

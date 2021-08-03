@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Modal from 'react-modal'
 
-import Header  from './components/Header/index';
+import Header from './components/Header/index';
 import { GlobalStyle } from './styles/global';
 import Dashboard from './components/Dashboard';
 import NewMathModal from './components/NewMathModal';
 import { MathsProvider } from './hooks/useMaths';
+import { ToastContainer } from 'react-toastify';
 
 Modal.setAppElement('#root');
 
@@ -13,21 +14,22 @@ export function App() {
   const [isNewMathOpenModal, setIsNewMathOpenModal] = useState(false);
 
   function handleOpenNewMathModal() {
-      setIsNewMathOpenModal(true);
+    setIsNewMathOpenModal(true);
   }
 
   function handleCloseNewMathModal() {
-      setIsNewMathOpenModal(false);
+    setIsNewMathOpenModal(false);
   }
-  
+
   return (
     <MathsProvider>
       <Header onOpenNewMathModal={handleOpenNewMathModal} />
       <Dashboard />
-      <NewMathModal 
+      <NewMathModal
         isOpen={isNewMathOpenModal}
         onRequestClose={handleCloseNewMathModal}
       />
+      <ToastContainer />
       <GlobalStyle />
     </MathsProvider>
   );

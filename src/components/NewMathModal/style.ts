@@ -1,18 +1,6 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-  .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-  }
-
   h2 { 
     color: var(--text-title);
     font-size: 1.5rem;
@@ -130,7 +118,6 @@ export const Button = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-top: 0.8rem;
 
   .cancel, button {
@@ -146,6 +133,7 @@ export const Button = styled.div`
   button[type="submit"] {
     background: var(--blue);
     color: #fff;
+    font-weight: 600;
 
     border: 0;
     border-radius: 0.25rem;
@@ -161,6 +149,7 @@ export const Button = styled.div`
     color: var(--red);
     border: 0.20rem var(--red) solid;
     border-radius: 0.25rem;
+    font-weight: 600;
 
     opacity: 0.7;
     transition: opacity 0.2s;
